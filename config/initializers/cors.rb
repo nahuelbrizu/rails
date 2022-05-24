@@ -1,6 +1,11 @@
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins '*'
-    resource '*', headers: :any, methods: [:get, :post, :patch, :put]
+    origins  'http://localhost:3000'
+    resource '/users',
+             :headers => :any,
+             :methods => [:get, :post]
+    resource '/recipes',
+             headers: :any,
+             methods: [:get, :post, :put, :patch, :delete, :options, :head]
   end
 end
